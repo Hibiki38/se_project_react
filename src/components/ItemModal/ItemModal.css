@@ -18,7 +18,7 @@
   line-height: 24px;
 }
 
-.modal__close-btn {
+.modal__close {
   border: none;
-  background: transparent;
+  background-color: transparent;
 }
