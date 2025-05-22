@@ -78,6 +78,10 @@
   border-radius: 8px;
 }
 
+.modal__submit:hover {
+  cursor: pointer;
+}
+
 .modal__close {
   border: none;
   background: transparent;
