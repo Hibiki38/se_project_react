@@ -11,7 +11,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
-import { getItems, deleteItems, addNewItems } from "../../utils/api";
+import { getItems, addItems, deleteItems } from "../../utils/api";
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -56,15 +56,16 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleDeleteItems = (_id) => {
-    deleteItems(selectedCard._id)
+  const HandledeleteItems = (id) => {
+    deleteItems(id)
       .then(() => {
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item._id !== selectedCard._id)
+          prevItems.filter((item) => item._id !== id)
         );
-        closeActiveModal();
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   useEffect(() => {
@@ -130,7 +131,7 @@ function App() {
         <DeleteModal
           isOpen={activeModal === "delete"}
           onClose={closeActiveModal}
-          onDelete={handleDeleteItems}
+          onDelete={HandledeleteItems}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>
