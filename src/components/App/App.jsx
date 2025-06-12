@@ -61,8 +61,9 @@ function App() {
     deleteItems(id)
       .then(() => {
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item.id !== _id)
+          prevItems.filter((item) => item.id !== id)
         );
+        closeActiveModal();
       })
       .catch((err) => {
         console.error(err);

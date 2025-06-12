@@ -19,7 +19,7 @@ function DeleteModal({ isOpen, onClose, onDelete, selectedCard }) {
         <div className="delete__buttons">
           <button
             className="delete__confirm"
-            onClick={() => handleDelete(selectedCard._id)}
+            onClick={handleDelete}
             type="button"
           >
             Yes, delete item
