@@ -61,7 +61,7 @@ function App() {
     deleteItems(id)
       .then(() => {
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item.id !== id)
+          prevItems.filter((item) => item._id !== id)
         );
         closeActiveModal();
       })
