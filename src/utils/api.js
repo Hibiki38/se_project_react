@@ -7,17 +7,17 @@ function getItems() {
 }
 
 function addItems({ name, imageUrl, weather }) {
-  return fetch(`${baseUrl}/items`, {
+  fetch(`${baseUrl}/items`, {
     method: "POST",
     body: JSON.stringify({ name, imageUrl, weather }),
-    headers: { "Content-Type": application / json },
+    headers: { "Content-Type": "application/json" },
   }).then((res) => {
     return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
   });
 }
 
-function deleteItems() {
-  return fetch(`${baseUrl}/items/_id`, { method: "DELETE" }).then((res) => {
+function deleteItems(id) {
+  return fetch(`${baseUrl}/items/${id}`, { method: "DELETE" }).then((res) => {
     return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
   });
 }
