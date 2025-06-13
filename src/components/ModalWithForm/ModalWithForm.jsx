@@ -14,7 +14,11 @@ function ModalWithForm({
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button type="button" onClick={onClose} className="modal__close">
-          <img src={modalCloseBtn} className="modal__close-btn" />
+          <img
+            src={modalCloseBtn}
+            alt="Close button"
+            className="modal__close-btn"
+          />
         </button>
         <form onSubmit={onSubmit} className="modal__form">
           {children}

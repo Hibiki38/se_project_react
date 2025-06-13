@@ -26,6 +26,10 @@
   background: transparent;
 }
 
+.modal__item-close:hover {
+  cursor: pointer;
+}
+
 .modal__delete {
   position: absolute;
   top: 517px;
@@ -36,4 +40,8 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+}
+
+.modal__delete:hover {
+  cursor: pointer;
 }
