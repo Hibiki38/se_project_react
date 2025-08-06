@@ -25,6 +25,7 @@ function ModalWithForm({
           <button type="submit" className="modal__submit">
             {buttonText}
           </button>
+          <p>Or log in</p>
         </form>
       </div>
     </div>

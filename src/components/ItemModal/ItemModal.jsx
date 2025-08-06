@@ -1,7 +1,14 @@
 import "./ItemModal.css";
 import itemModalClose from "../../assets/item-close.png";
 
-function ItemModal({ activeModal, onClose, card, onDeleteClick }) {
+function ItemModal({
+  activeModal,
+  onClose,
+  card,
+  onDeleteClick,
+  likeItem,
+  currentUser,
+}) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
@@ -10,15 +17,21 @@ function ItemModal({ activeModal, onClose, card, onDeleteClick }) {
         </button>
         <img src={card.imageUrl} alt={card.name} className="modal__img" />
         <div className="modal__footer">
-          <h2 className="modal__caption">{card.name}</h2>
-          <p className="modal__weather">Weather: {card.weather}</p>
-          <button
-            type="button"
-            onClick={onDeleteClick}
-            className="modal__delete"
-          >
-            Delete item
-          </button>
+          <div className="modal__caption-weather">
+            <h2 className="modal__caption">{card.name}</h2>
+            <p className="modal__weather">Weather: {card.weather}</p>
+          </div>
+          {currentUser && (
+            <>
+              <button
+                type="button"
+                onClick={onDeleteClick}
+                className="modal__delete"
+              >
+                Delete item
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

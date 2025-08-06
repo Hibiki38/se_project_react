@@ -3,6 +3,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .card:hover {
@@ -24,4 +25,12 @@
   width: 100%;
   border-radius: 20px;
   border: 1px solid #0000004d;
+}
+
+.card__like-btn {
+  position: absolute;
+  top: 15px;
+  left: 194px;
+  background: none;
+  border: none;
 }

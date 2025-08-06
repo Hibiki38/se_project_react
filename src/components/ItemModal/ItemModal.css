@@ -1,3 +1,9 @@
+.modal__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .modal__img {
   width: 100%;
   border-top-left-radius: 16px;
@@ -31,9 +37,6 @@
 }
 
 .modal__delete {
-  position: absolute;
-  top: 517px;
-  left: 360px;
   color: #ff4d00;
   border: none;
   background: transparent;
@@ -44,4 +47,8 @@
 
 .modal__delete:hover {
   cursor: pointer;
+}
+
+.modal__caption-weather {
+  flex-direction: column;
 }
