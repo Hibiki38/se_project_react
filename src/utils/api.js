@@ -68,6 +68,7 @@ function like(id) {
 }
 
 function unlike(id) {
+  debugger;
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",

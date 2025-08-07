@@ -80,7 +80,7 @@
 
 .modal__submit {
   margin-top: 32px;
-  max-width: 124px;
+  width: 86px;
   height: 36px;
   color: #fff;
   background-color: #0000004d;
@@ -89,5 +89,20 @@
 }
 
 .modal__submit:hover {
+  cursor: pointer;
+}
+
+.modal__btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.modal__login-btn {
+  height: 36px;
+  margin: 32px 0px 0px;
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 }

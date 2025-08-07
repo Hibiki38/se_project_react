@@ -7,9 +7,6 @@ function ItemCard({ item, onCardClick, likeItem }) {
   };
 
   const handleLikeClick = () => {
-    console.log("like button clicked");
-    console.log("Current isLiked state:", item.isLiked);
-    console.log("Item ID:", item._id);
     likeItem(item._id, !item.isLiked);
   };
 

@@ -1,11 +1,11 @@
 .footer {
-  width: 1358px;
+  width: 1360px;
 }
 
 .footer__container {
   display: flex;
   justify-content: space-between;
-  margin-top: 171px;
+  margin-top: 496px;
 }
 
 .footer__name {

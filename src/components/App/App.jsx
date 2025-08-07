@@ -58,10 +58,12 @@ function App() {
   };
 
   const handleSignUp = () => {
+    closeActiveModal();
     setActiveModal("Sign up");
   };
 
   const handleLogin = () => {
+    closeActiveModal();
     setActiveModal("Log in");
   };
 
@@ -136,7 +138,7 @@ function App() {
     localStorage.removeItem("jwt");
   };
 
-  const likeItem = ({ id, isLiked }) => {
+  const likeItem = (id, isLiked) => {
     const token = localStorage.getItem("jwt");
     !isLiked
       ? like(id, token)
@@ -247,7 +249,6 @@ function App() {
                 }
               />
             </Routes>
-
             <Footer />
           </div>
           <AddItemModal
@@ -275,12 +276,16 @@ function App() {
             isOpen={activeModal === "Sign up"}
             onClose={closeActiveModal}
             onRegistrationModalSubmit={handleRegistrationModalSubmit}
+            handleLogin={handleLogin}
+            alternativeText="Or log in"
           />
 
           <LogInModal
             isOpen={activeModal === "Log in"}
             onClose={closeActiveModal}
             onLogInModalSubmit={handleLogInModalSubmit}
+            handleSignUp={handleSignUp}
+            alternativeText="Or Sign up"
           />
 
           <EditProfileModal
