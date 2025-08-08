@@ -21,7 +21,7 @@ function ItemModal({
             <h2 className="modal__caption">{card.name}</h2>
             <p className="modal__weather">Weather: {card.weather}</p>
           </div>
-          {currentUser && (
+          {currentUser && card.owner === currentUser._id && (
             <>
               <button
                 type="button"

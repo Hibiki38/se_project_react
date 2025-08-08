@@ -21,6 +21,7 @@ function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log("Data being sent:", { name, imageUrl, weather });
     onAddItemModalSubmit({ name, imageUrl, weather });
     setName("");
     setImageUrl("");
@@ -35,7 +36,7 @@ function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="add-item-name-input" className="modal__label">
         Name {""}
         <input
           type="text"
@@ -44,7 +45,7 @@ function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) {
           maxLength="30"
           required
           className="modal__input"
-          id="name"
+          id="add-item-name-input"
           placeholder="name"
           onChange={handleNameChange}
           value={name}

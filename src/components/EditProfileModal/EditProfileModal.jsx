@@ -19,7 +19,7 @@ function EditProfileModal({
       onClose={onClose}
       onSubmit={handleEditProfileModalSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="edit-profile-name-input" className="modal__label">
         Username {""}
         <input
           type="text"
@@ -28,7 +28,7 @@ function EditProfileModal({
           maxLength="30"
           required
           className="modal__input"
-          id="name"
+          id="edit-profile-name-input"
           placeholder="name"
           onChange={handleNameChange}
           value={currentUser.name}

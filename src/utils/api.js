@@ -46,7 +46,7 @@ function login({ email, password }) {
   }).then(checkResponse);
 }
 
-function jwtBearer({ token }) {
+function jwtBearer(token) {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
@@ -68,7 +68,6 @@ function like(id) {
 }
 
 function unlike(id) {
-  debugger;
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",

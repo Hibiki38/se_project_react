@@ -25,6 +25,8 @@ This a project from TripleTen using React.
 
 - I will be adding more to the readme.md as the project progresses. Most importantly I would like to have a video describing the app and it's functionality.
 
+**Backend Link** -[Link to the backend repo] (https://github.com/Hibiki38/se_project_express)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

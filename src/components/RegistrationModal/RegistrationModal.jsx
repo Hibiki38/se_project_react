@@ -91,7 +91,7 @@ function RegistrationModal({
       <label htmlFor="avatarUrl" className="modal__label">
         Avatar URL {""}
         <input
-          type="link"
+          type="url"
           className="modal__input"
           id="avatarUrl"
           placeholder="Avatar URL"

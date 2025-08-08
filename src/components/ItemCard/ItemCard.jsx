@@ -1,21 +1,33 @@
 import "./ItemCard.css";
 import likeButton from "../../assets/Like-button.svg";
+import likeButtonBlack from "../../assets/Like-button-black.svg";
 
-function ItemCard({ item, onCardClick, likeItem }) {
+function ItemCard({ item, onCardClick, likeItem, currentUser }) {
   const handleClickCard = () => {
     onCardClick(item, true);
   };
 
   const handleLikeClick = () => {
-    likeItem(item._id, !item.isLiked);
+    likeItem(item._id, item.likes.includes(currentUser._id));
   };
 
   return (
     <li className="card">
       <h2 className="card__name">{item.name}</h2>
-      <button className="card__like-btn" onClick={handleLikeClick}>
-        <img src={likeButton} alt="like button" />
-      </button>
+      {currentUser && (
+        <>
+          <button className="card__like-btn" onClick={handleLikeClick}>
+            <img
+              src={
+                item.likes.includes(currentUser._id)
+                  ? likeButtonBlack
+                  : likeButton
+              }
+              alt="like button"
+            />
+          </button>
+        </>
+      )}
       <img
         onClick={handleClickCard}
         className="card__img"

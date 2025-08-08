@@ -7,7 +7,7 @@ import Main from "../Main/Main";
 import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../../components/Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, apiKey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -98,7 +98,10 @@ function App() {
     addUser({ email, password, name, avatar })
       .then((res) => {
         localStorage.setItem("jwt", res.token);
-        setCurrentUser(res.user);
+        return jwtBearer(res.token);
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
         setIsLoggedInUser(true);
         closeActiveModal();
       })
@@ -111,7 +114,10 @@ function App() {
     login({ email, password })
       .then((res) => {
         localStorage.setItem("jwt", res.token);
-        setCurrentUser(res.user);
+        return jwtBearer(res.token);
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
         setIsLoggedInUser(true);
         closeActiveModal();
       })
@@ -123,7 +129,7 @@ function App() {
   const handleEditProfileModalSubmit = ({ name, avatar }) => {
     updateProfile({ name, avatar })
       .then((res) => {
-        setCurrentUser(res.user);
+        setCurrentUser(res);
         setIsLoggedInUser(true);
         closeActiveModal();
       })
@@ -138,17 +144,16 @@ function App() {
     localStorage.removeItem("jwt");
   };
 
-  const likeItem = (id, isLiked) => {
-    const token = localStorage.getItem("jwt");
-    !isLiked
-      ? like(id, token)
+  const likeItem = (id, likes) => {
+    likes
+      ? unlike(id)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
             );
           })
           .catch((err) => console.log(err))
-      : unlike(id, token)
+      : like(id)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
@@ -175,7 +180,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -195,7 +200,7 @@ function App() {
     if (localStorage.getItem("jwt") === null) {
       setIsLoggedInUser(false);
     } else {
-      jwtBearer({ token: localStorage.getItem("jwt") })
+      jwtBearer(localStorage.getItem("jwt"))
         .then((data) => {
           setIsLoggedInUser(true);
           setCurrentUser(data);
@@ -229,6 +234,7 @@ function App() {
                     clothingItems={clothingItems}
                     handleClickAdd={handleClickAdd}
                     likeItem={likeItem}
+                    currentUser={currentUser}
                   />
                 }
               />

@@ -4,7 +4,13 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
 
-function Main({ weatherData, onCardClick, clothingItems, likeItem }) {
+function Main({
+  weatherData,
+  onCardClick,
+  clothingItems,
+  likeItem,
+  currentUser,
+}) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   return (
     <main>
@@ -26,6 +32,7 @@ function Main({ weatherData, onCardClick, clothingItems, likeItem }) {
                   item={item}
                   onCardClick={onCardClick}
                   likeItem={likeItem}
+                  currentUser={currentUser}
                 />
               );
             })}

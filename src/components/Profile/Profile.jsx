@@ -11,9 +11,14 @@ function Profile({
   handleEditProfile,
   handleLogOut,
 }) {
+  if (!currentUser) {
+    return <div>Loading...</div>;
+  }
+
   const myItems = clothingItems.filter(
     (item) => item.owner === currentUser._id
   );
+
   return (
     <div className="profile">
       <section className="profile__sidebar">
@@ -29,10 +34,10 @@ function Profile({
           clothingItems={myItems}
           handleClickAdd={handleClickAdd}
           likeItem={likeItem}
+          currentUser={currentUser}
         />
       </section>
     </div>
   );
 }
-
 export default Profile;

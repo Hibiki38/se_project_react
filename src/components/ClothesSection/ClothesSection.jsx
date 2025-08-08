@@ -6,6 +6,7 @@ function ClothesSection({
   clothingItems,
   handleClickAdd,
   likeItem,
+  currentUser,
 }) {
   return (
     <div className="clothes-section">
@@ -23,6 +24,7 @@ function ClothesSection({
               item={item}
               onCardClick={onCardClick}
               likeItem={likeItem}
+              currentUser={currentUser}
             />
           );
         })}
