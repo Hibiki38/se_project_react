@@ -1,14 +1,10 @@
 import "./ItemModal.css";
+import { useContext } from "react";
 import itemModalClose from "../../assets/item-close.png";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function ItemModal({
-  activeModal,
-  onClose,
-  card,
-  onDeleteClick,
-  likeItem,
-  currentUser,
-}) {
+function ItemModal({ activeModal, onClose, card, onDeleteClick }) {
+  const currentUser = useContext(CurrentUserContext);
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">

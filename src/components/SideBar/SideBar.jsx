@@ -1,7 +1,9 @@
-import avatar from "../../assets/avatar.png";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./SideBar.css";
+import { useContext } from "react";
 
-function SideBar({ handleEditProfile, currentUser, handleLogOut }) {
+function SideBar({ handleEditProfile, handleLogOut }) {
+  const currentUser = useContext(CurrentUserContext);
   return (
     <div className="sidebar">
       <div className="sidebar__header-container">

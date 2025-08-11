@@ -71,14 +71,6 @@ function App() {
     setActiveModal("Edit profile");
   };
 
-  const handleNameChange = (evt) => {
-    setCurrentUser({ ...currentUser, name: evt.target.value });
-  };
-
-  const handleImageUrl = (evt) => {
-    setCurrentUser({ ...currentUser, avatar: evt.target.value });
-  };
-
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -234,7 +226,6 @@ function App() {
                     clothingItems={clothingItems}
                     handleClickAdd={handleClickAdd}
                     likeItem={likeItem}
-                    currentUser={currentUser}
                   />
                 }
               />
@@ -246,7 +237,6 @@ function App() {
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleClickAdd={handleClickAdd}
-                      currentUser={currentUser}
                       likeItem={likeItem}
                       handleEditProfile={handleEditProfile}
                       handleLogOut={handleLogOut}
@@ -268,7 +258,6 @@ function App() {
             onClose={closeActiveModal}
             onDeleteClick={handleDeleteClick}
             likeItem={likeItem}
-            currentUser={currentUser}
           />
 
           <DeleteModal
@@ -295,11 +284,8 @@ function App() {
           />
 
           <EditProfileModal
-            currentUser={currentUser}
             onClose={closeActiveModal}
             isOpen={activeModal === "Edit profile"}
-            handleNameChange={handleNameChange}
-            handleImageUrl={handleImageUrl}
             handleEditProfileModalSubmit={handleEditProfileModalSubmit}
           />
         </div>

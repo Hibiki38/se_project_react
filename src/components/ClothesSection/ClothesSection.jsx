@@ -1,4 +1,5 @@
 import ItemCard from "../ItemCard/ItemCard";
+
 import "./ClothesSection.css";
 
 function ClothesSection({
@@ -6,7 +7,6 @@ function ClothesSection({
   clothingItems,
   handleClickAdd,
   likeItem,
-  currentUser,
 }) {
   return (
     <div className="clothes-section">
@@ -24,7 +24,6 @@ function ClothesSection({
               item={item}
               onCardClick={onCardClick}
               likeItem={likeItem}
-              currentUser={currentUser}
             />
           );
         })}

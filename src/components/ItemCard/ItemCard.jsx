@@ -1,8 +1,11 @@
 import "./ItemCard.css";
+import { useContext } from "react";
 import likeButton from "../../assets/Like-button.svg";
 import likeButtonBlack from "../../assets/Like-button-black.svg";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function ItemCard({ item, onCardClick, likeItem, currentUser }) {
+function ItemCard({ item, onCardClick, likeItem }) {
+  const currentUser = useContext(CurrentUserContext);
   const handleClickCard = () => {
     onCardClick(item, true);
   };

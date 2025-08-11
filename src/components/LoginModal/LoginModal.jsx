@@ -30,7 +30,7 @@ function LogInModal({ onClose, isOpen, onLogInModalSubmit, handleSignUp }) {
       handleLogin={handleSignUp}
       alternativeText="Or Sign up"
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="email-user" className="modal__label">
         Email {""}
         <input
           type="email"
@@ -39,18 +39,18 @@ function LogInModal({ onClose, isOpen, onLogInModalSubmit, handleSignUp }) {
           maxLength="30"
           required
           className="modal__input"
-          id="email"
+          id="email-user"
           placeholder="Email"
           onChange={handleEmail}
           value={email}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="password-user" className="modal__label">
         Password {""}
         <input
           type="password"
           className="modal__input"
-          id="password"
+          id="password-user"
           placeholder="Password"
           required
           onChange={handlePassword}

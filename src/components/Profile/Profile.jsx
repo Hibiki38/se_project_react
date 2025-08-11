@@ -1,16 +1,18 @@
 import ClothesSection from "../ClothesSection/ClothesSection";
+import { useContext } from "react";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Profile({
   onCardClick,
   clothingItems,
   handleClickAdd,
-  currentUser,
   likeItem,
   handleEditProfile,
   handleLogOut,
 }) {
+  const currentUser = useContext(CurrentUserContext);
   if (!currentUser) {
     return <div>Loading...</div>;
   }
@@ -23,7 +25,6 @@ function Profile({
     <div className="profile">
       <section className="profile__sidebar">
         <SideBar
-          currentUser={currentUser}
           handleEditProfile={handleEditProfile}
           handleLogOut={handleLogOut}
         />
@@ -34,7 +35,6 @@ function Profile({
           clothingItems={myItems}
           handleClickAdd={handleClickAdd}
           likeItem={likeItem}
-          currentUser={currentUser}
         />
       </section>
     </div>
