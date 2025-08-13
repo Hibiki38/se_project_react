@@ -5,10 +5,10 @@
 }
 
 .modal__img {
-  max-width: 325px;
+  width: 498px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  max-height: 328px;
+  height: 498px;
   object-fit: cover;
 }
 
@@ -45,6 +45,8 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  margin-right: 18px;
+  margin-top: 16px;
 }
 
 .modal__delete:hover {
