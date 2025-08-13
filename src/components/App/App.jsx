@@ -118,7 +118,7 @@ function App() {
       });
   };
 
-  const handleEditProfileModalSubmit = ({ name, avatar }) => {
+  const handleEditProfileModalSubmit = (name, avatar) => {
     updateProfile({ name, avatar })
       .then((res) => {
         setCurrentUser(res);

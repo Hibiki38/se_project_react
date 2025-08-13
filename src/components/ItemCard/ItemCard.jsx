@@ -5,7 +5,7 @@ import likeButtonBlack from "../../assets/Like-button-black.svg";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ItemCard({ item, onCardClick, likeItem }) {
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
   const handleClickCard = () => {
     onCardClick(item, true);
   };

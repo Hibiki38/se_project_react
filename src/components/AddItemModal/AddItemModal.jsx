@@ -51,12 +51,12 @@ function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) {
           value={name}
         />
       </label>
-      <label htmlFor="imageUrl" className="modal__label">
+      <label htmlFor="avatar" className="modal__label">
         Image {""}
         <input
           type="url"
           className="modal__input"
-          id="imageUrl"
+          id="avatar"
           placeholder="Image URL"
           required
           onChange={handleImageUrl}

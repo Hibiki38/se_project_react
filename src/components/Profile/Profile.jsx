@@ -12,7 +12,7 @@ function Profile({
   handleEditProfile,
   handleLogOut,
 }) {
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
   if (!currentUser) {
     return <div>Loading...</div>;
   }
