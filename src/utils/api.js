@@ -81,7 +81,7 @@ function unlike(id) {
 function updateProfile({ name, avatar }) {
   const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/users/me`, {
-    method: "PUT",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,

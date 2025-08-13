@@ -6,8 +6,8 @@ import { useState } from "react";
 function EditProfileModal({ onClose, isOpen, handleEditProfileModalSubmit }) {
   const { currentUser } = useContext(CurrentUserContext);
 
-  const [name, setName] = useState(currentUser?.name);
-  const [avatar, setAvatar] = useState(currentUser?.avatar);
+  const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -42,12 +42,12 @@ function EditProfileModal({ onClose, isOpen, handleEditProfileModalSubmit }) {
           value={name}
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="avatar-url" className="modal__label">
         Avatar {""}
         <input
           type="url"
           className="modal__input"
-          id="avatar"
+          id="avatar-url"
           placeholder="Image URL"
           required
           onChange={(evt) => setAvatar(evt.target.value)}
